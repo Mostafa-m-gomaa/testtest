@@ -39,4 +39,26 @@
     text-decoration: line-through;
     color: #999;
   }
+  .recommendation{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .recommend-container{
+    background-color: white;
+    padding: 15px;
+    width: 90%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    gap: 15px;
+  }
+  .course-card-spec{
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 20%;
+  }
   
