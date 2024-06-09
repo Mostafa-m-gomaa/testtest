@@ -268,7 +268,8 @@ import axios from 'axios';
 import io from 'socket.io-client';
 import './Chat.css';
 
-const SOCKET_SERVER_URL = "https://gp.softwave-dev.com";
+// const SOCKET_SERVER_URL = "https://gp.softwave-dev.com";
+const SOCKET_SERVER_URL = "https://socket.nexgen-academy.com";
 const API_URL = "https://gp.softwave-dev.com/api/v1/chats/myChats";
 const MESSAGES_URL = "https://gp.softwave-dev.com/api/v1/messages";
 
@@ -301,6 +302,14 @@ const Chat = () => {
     // الاتصال بخادم Socket.io
     socketRef.current = io(SOCKET_SERVER_URL, {
       query: { token },
+    });
+
+    socketRef.current.on('connect', () => {
+      console.log('Connected to Socket.io server');
+    });
+
+    socketRef.current.on('connect_error', (err) => {
+      console.log('sayed', err);
     });
 
     // الاستماع للرسائل الجديدة
