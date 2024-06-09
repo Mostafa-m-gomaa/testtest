@@ -50,6 +50,7 @@ const Login = () => {
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("userName", res.data.data.username);
             localStorage.setItem("role", res.data.data.role);
+            localStorage.setItem("id", res.data.data._id);
             nav("/dashboard");
           }
         })
@@ -86,6 +87,7 @@ const Login = () => {
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("userName", res.data.data.username);
             localStorage.setItem("role", res.data.data.role);
+            localStorage.setItem("id", res.data.data._id);
           }
 
           nav("/active");
