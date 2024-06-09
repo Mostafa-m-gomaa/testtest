@@ -467,7 +467,7 @@ const Chat = () => {
     });
 
     // الاستماع للرسائل الجديدة
-    socketRef.current.on('message', (message) => {
+    socketRef.current.on('receiveMessage', (message) => {
       console.log('New message received:', message);
       if (message.chatId === selectedChat) {
         setMessages((prevMessages) => [...prevMessages, message]);
@@ -504,10 +504,10 @@ const Chat = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-
+        console.log(response)
         // إرسال الرسالة عبر Socket.io
         const sentMessage = { ...response.data, chatId: selectedChat };
-        socketRef.current.emit('message', sentMessage);
+        socketRef.current.emit('sendMessage', sentMessage);
 
         // تحديث الرسائل بعد إرسال الرسالة الجديدة
         setMessages((prevMessages) => [...prevMessages, sentMessage]);
